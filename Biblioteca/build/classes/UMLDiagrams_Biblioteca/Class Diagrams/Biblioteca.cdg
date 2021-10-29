@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Biblioteca">
+  <ClassDiagramComponents>
+    <Class name="Diario" package="biblioteca" visibility="public" xPosition="1270.0" yPosition="776.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="grupo"/>
+          <Argument type="String" name="editorial"/>
+          <Argument type="Date" name="fechaPublicacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="MostrarDatos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Libro" package="biblioteca" visibility="public" xPosition="779.0" yPosition="776.0">
+      <Fields>
+        <Field name="autor" type="String" visibility="private"/>
+        <Field name="isbn" type="String" visibility="private"/>
+        <Field name="titulo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="isbn"/>
+          <Argument type="String" name="titulo"/>
+          <Argument type="String" name="autor"/>
+          <Argument type="String" name="editorial"/>
+          <Argument type="Date" name="fechaPublicacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAutor" returnType="String" visibility="public"/>
+        <Method name="getIsbn" returnType="String" visibility="public"/>
+        <Method name="getTitulo" returnType="String" visibility="public"/>
+        <Method name="MostrarDatos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Material" package="biblioteca" visibility="public" isAbstract="true" xPosition="872.0" yPosition="407.0">
+      <Fields>
+        <Field name="codMateriales" type="int" visibility="private" isStatic="true"/>
+        <Field name="codMaterial" type="int" visibility="private"/>
+        <Field name="editorial" type="String" visibility="private"/>
+        <Field name="fechaPublicacion" type="Date" visibility="private"/>
+        <Field name="disponible" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="editorial"/>
+          <Argument type="Date" name="fechaPublicacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCodMaterial" returnType="int" visibility="public"/>
+        <Method name="getEditorial" returnType="String" visibility="public"/>
+        <Method name="getFechaPublicacion" returnType="Date" visibility="public"/>
+        <Method name="MostrarDatos" returnType="void" visibility="public"/>
+        <Method name="getDisponible" returnType="boolean" visibility="public"/>
+        <Method name="setDisponible" returnType="void" visibility="public">
+          <Argument type="boolean" name="disponible"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Prestamo" package="biblioteca" visibility="public" xPosition="872.0" yPosition="15.0">
+      <Fields>
+        <Field name="fechaDesde" type="Date" visibility="private"/>
+        <Field name="fechaHasta" type="Date" visibility="private"/>
+        <Field name="socio" type="Socio" visibility="private"/>
+        <Field name="materiales" type="Stack" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Socio" name="socio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFechaDesde" returnType="Date" visibility="public"/>
+        <Method name="getFechaHasta" returnType="Date" visibility="public"/>
+        <Method name="getSocio" returnType="Socio" visibility="public"/>
+        <Method name="getMateriales" returnType="List&lt;Material&gt;" visibility="public"/>
+        <Method name="AgregarMaterial" returnType="void" visibility="public">
+          <Argument type="Material" name="material"/>
+        </Method>
+        <Method name="DisponibilizarMateriales" returnType="void" visibility="public"/>
+        <Method name="MostrarDatos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Revista" package="biblioteca" visibility="public" xPosition="313.0" yPosition="776.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="numero" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="numero"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="editorial"/>
+          <Argument type="Date" name="fechaPublicacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getNumero" returnType="int" visibility="public"/>
+        <Method name="MostrarDatos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Socio" package="biblioteca" visibility="public" isAbstract="true" xPosition="200.0" yPosition="15.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="documento" type="String" visibility="private"/>
+        <Field name="nroSocio" type="int" visibility="private"/>
+        <Field name="nroSocios" type="int" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="documento"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDiasPrestamo" returnType="int" visibility="public" isAbstract="true"/>
+        <Method name="getMaxMateriales" returnType="int" visibility="public" isAbstract="true"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="getDocumento" returnType="String" visibility="public"/>
+        <Method name="getNroSocio" returnType="int" visibility="public"/>
+        <Method name="MostrarDatos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SocioFree" package="biblioteca" visibility="public" xPosition="4.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="documento"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDiasPrestamo" returnType="int" visibility="public"/>
+        <Method name="getMaxMateriales" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SocioPremium" package="biblioteca" visibility="public" xPosition="378.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="documento"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDiasPrestamo" returnType="int" visibility="public"/>
+        <Method name="getMaxMateriales" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="biblioteca.SocioFree" target="biblioteca.Socio"/>
+    <IsRelation name="is" source="biblioteca.Diario" target="biblioteca.Material"/>
+    <IsRelation name="is" source="biblioteca.Revista" target="biblioteca.Material"/>
+    <UseRelation source="biblioteca.Prestamo" target="biblioteca.Socio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="biblioteca.Libro" target="biblioteca.Material"/>
+    <IsRelation name="is" source="biblioteca.SocioPremium" target="biblioteca.Socio"/>
+    <UseRelation source="biblioteca.Prestamo" target="biblioteca.Material" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
